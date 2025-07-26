@@ -26,6 +26,8 @@ Thumbs.db
 
 Data/**/*.csv
 Data/**/*.parquet
+Data/processed/*.csv
+Data/raw/*.parquet
 Data/Test\ Cases/\*.json
 
 # Models
