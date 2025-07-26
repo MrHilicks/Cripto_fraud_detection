@@ -1,0 +1,43 @@
+# Python
+
+**pycache**/
+\*.py\[cod]
+\*.pkl
+\*.joblib
+\*.log
+
+# Jupyter
+
+.ipynb\_checkpoints/
+
+# Environments
+
+.env
+.venv
+env/
+venv/
+
+# OS
+
+.DS\_Store
+Thumbs.db
+
+# Data
+
+Data/*.csv
+Data/*.parquet
+Data/Test\ Cases/\*.json
+
+# Models
+
+models/*.cbm
+models/*.pkl
+
+# FastAPI auto-reloads
+
+\*.db
+
+# Visual Studio
+
+.vscode/
+.vs/
