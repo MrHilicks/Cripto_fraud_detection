@@ -1,6 +1,5 @@
 **README.md**
 
-
 # 🛡️ Fraud Detection Service
 
 Проект по машинному обучению для классификации мошеннических действий.
@@ -45,6 +44,4 @@ python -m scripts.predict \
 ```bash
 docker build -t fraud-detection .
 docker run -p 8000:8000 fraud-detection
-```
-
 ```
