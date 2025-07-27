@@ -11,23 +11,14 @@ from scripts.model_inference import load_model, load_preprocessor, data_preproce
 # === 1. FastAPI app ===
 app = FastAPI()
 
-# === 2. Пути к моделям ===
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # Папка 1_ML_Project
-MODEL_PATH = os.path.join(BASE_DIR, "models", "catboost_model.cbm")
-PREPROCESSOR_PATH = os.path.join(BASE_DIR, "models", "feature_preprocessor.pkl")
-
-# === 3. Загружаем модель и препроцессор ===
-model = load_model(MODEL_PATH)
-feature_preprocessor = load_preprocessor(PREPROCESSOR_PATH)
-
-# === 4. POST эндпоинт ===
+# === 2. POST эндпоинт ===
 @app.post("/predict")
 def predict_fraud(data):
     df = pd.DataFrame([data.dict()])
     prediction = predict(df)
     return {"prediction": int(prediction[0])}
 
-# === 5. Локальная проверка ===
+# === 3. Локальная проверка ===
 if __name__ == "__main__":
     TEST_CASES_DIR = os.path.join(BASE_DIR, "Data", "Test Cases")
     TEST_FILES = ["Sample_1.parquet", "Sample_2.parquet", "Sample_3.parquet"]
