@@ -11,14 +11,17 @@ from scripts.model_inference import load_model, load_preprocessor, data_preproce
 # === 1. FastAPI app ===
 app = FastAPI()
 
-# === 2. POST эндпоинт ===
+# === 2. Путь к тест кейсам ===
+BASE_DIR = os.path.dirname(os.path.dirname(__file__)) 
+
+# === 3. POST эндпоинт ===
 @app.post("/predict")
 def predict_fraud(data):
     df = pd.DataFrame([data.dict()])
     prediction = predict(df)
     return {"prediction": int(prediction[0])}
 
-# === 3. Локальная проверка ===
+# === 4. Локальная проверка ===
 if __name__ == "__main__":
     TEST_CASES_DIR = os.path.join(BASE_DIR, "Data", "Test Cases")
     TEST_FILES = ["Sample_1.parquet", "Sample_2.parquet", "Sample_3.parquet"]
